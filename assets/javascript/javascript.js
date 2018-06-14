@@ -1,6 +1,3 @@
-var youChar;
-
-var enemyChar;
 
 // Make & give each characters properties (hp, name, stats)
 // <!-- Obi-Wan Kenobi -->
@@ -71,6 +68,7 @@ for(i=0; i<characters.length; i++) {
 charimages(characters[i].image);
 }
 
+
 // for(i=0; i<characters.length; i++) {
 //     var cards = $("<div>");
 //     cards.addClass("card");
@@ -89,80 +87,118 @@ for(i=0; i<characters.length; i++) {
     statChart.append("<p>Defense: " + characters[i].defense + "</p>");
     statChart.append("<p>Offense: " + characters[i].attack + "</p>");
     $("#statdisplay").append(statChart);
+    isYouSelected = true;
     }
+
+
+var youChar;
+
+var enemyChar;
+
+var isYouSelected = false;
+
+var isEnemySelected = false;
+
 
 // Player choose character
 
 $(".chars").click(function() {
-    console.log($(this).attr("id"));
+
+    if(isYouSelected === false) {
+    isYouSelected = true;
+
+    console.log(isYouSelected);
+
     if ($(this).attr("id") === characters[0].name) {
         youChar = characters[0];
         console.log(characters[0]);
         $('[id="Obi-Wan Kenobi"]').clone().appendTo("#youpic");
         this.style.display = "none";
+        $("#statdisplay").append(statChart);
     }
-    $("#msgboard").html("<h2>Choose your nemesis:</h2>");
-});
 
-$(".chars").click(function() {
-    console.log($(this).attr("id"));
     if ($(this).attr("id") === characters[1].name) {
         youChar = characters[1];
         console.log(characters[1]);
         $('[id="Han Solo"]').clone().appendTo("#youpic");
         this.style.display = "none";
     }
-    $("#msgboard").html("<h2>Choose your nemesis:</h2>");
-});
 
-$(".chars").click(function() {
-    console.log($(this).attr("id"));
     if ($(this).attr("id") === characters[2].name) {
         youChar = characters[2];
         console.log(characters[2]);
-        $('[id="Chewbecca"]').clone().appendTo("#youpic");
+        $("#Chewbecca").clone().appendTo("#youpic");
         this.style.display = "none";
     }
-    $("#msgboard").html("<h2>Choose your nemesis:</h2>");
-});
 
-$(".chars").click(function() {
-    console.log($(this).attr("id"));
     if ($(this).attr("id") === characters[3].name) {
         youChar = characters[3];
         console.log(characters[3]);
         $('[id="Darth Vader"]').clone().appendTo("#youpic");
         this.style.display = "none";
     }
-    $("#msgboard").html("<h2>Choose your nemesis:</h2>");
-});
 
-$(".chars").click(function() {
-    console.log($(this).attr("id"));
     if ($(this).attr("id") === characters[4].name) {
         youChar = characters[4];
         console.log(characters[4]);
         $('[id="Count Grievous"]').clone().appendTo("#youpic");
         this.style.display = "none";
     }
-    $("#msgboard").html("<h2>Choose your nemesis:</h2>");
-});
 
-$(".chars").click(function() {
-    console.log($(this).attr("id"));
     if ($(this).attr("id") === characters[5].name) {
         youChar = characters[5];
         console.log(characters[5]);
         $('[id="Count Dooku"]').clone().appendTo("#youpic");
         this.style.display = "none";
     }
-    $("#msgboard").html("<h2>Choose your nemesis:</h2>");
-});
+    $("#msgboard").html("<h2>Choose your nemesis:</h2>")
+} else {
+    if ($(this).attr("id") === characters[0].name) {
+        youChar = characters[0];
+        console.log(characters[0]);
+        $('[id="Obi-Wan Kenobi"]').clone().appendTo("#enemypic");
+        this.style.display = "none";
+        $("#statdisplay").append(statChart);
+    }
 
-// $(".chars").click(function() {
-//     $("#msgboard").html("<h2>Let the battle begin!</h2>");
-// });
+    if ($(this).attr("id") === characters[1].name) {
+        youChar = characters[1];
+        console.log(characters[1]);
+        $('[id="Han Solo"]').clone().appendTo("#enemypic");
+        this.style.display = "none";
+    }
 
+    if ($(this).attr("id") === characters[2].name) {
+        youChar = characters[2];
+        console.log(characters[2]);
+        $("#Chewbecca").clone().appendTo("#enemypic");
+        this.style.display = "none";
+    }
+
+    if ($(this).attr("id") === characters[3].name) {
+        youChar = characters[3];
+        console.log(characters[3]);
+        $('[id="Darth Vader"]').clone().appendTo("#enemypic");
+        this.style.display = "none";
+    }
+
+    if ($(this).attr("id") === characters[4].name) {
+        youChar = characters[4];
+        console.log(characters[4]);
+        $('[id="Count Grievous"]').clone().appendTo("#enemypic");
+        this.style.display = "none";
+    }
+
+    if ($(this).attr("id") === characters[5].name) {
+        youChar = characters[5];
+        console.log(characters[5]);
+        $('[id="Count Dooku"]').clone().appendTo("#enemypic");
+        this.style.display = "none";
+    }
+    $("#msgboard").html("<h2>Let the battle begin!</h2>");
+}
+}
+)
 // Create battle environment
 
 
